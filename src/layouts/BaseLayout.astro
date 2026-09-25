@@ -1,0 +1,29 @@
+---
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle} | My Digital Garden</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>{pageTitle}</h1>
+      
+      
+      <slot />
+    </main>
+
+    <footer>
+      <p>© 2026 My Digital Garden</p>
+    </footer>
+  </body>
+</html>
