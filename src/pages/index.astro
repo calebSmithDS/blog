@@ -2,6 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const allEssays = Object.values(import.meta.glob('./essays/*.md', { eager: true }));
+
+const statusIcons = {
+  seedling: "🌱",
+  budding: "🌿",
+  evergreen: "🌳"
+};
 ---
 
 <BaseLayout pageTitle="Essay Directory">
@@ -10,6 +16,10 @@ const allEssays = Object.values(import.meta.glob('./essays/*.md', { eager: true 
   <ul>
     {allEssays.map((essay) => (
       <li>
+        <span title={essay.frontmatter.status} style="margin-right: 8px;">
+          {statusIcons[essay.frontmatter.status] || "🌱"}
+        </span>
+
         <a href={essay.url}>{essay.frontmatter.title}</a> 
         <span style="color: #666; font-size: 0.9em;"> — {essay.frontmatter.date}</span>
       </li>

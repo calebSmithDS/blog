@@ -2,12 +2,20 @@
 import BaseLayout from './BaseLayout.astro';
 
 const { frontmatter } = Astro.props;
+
+const statusIcons = {
+  seedling: "🌱 Seedling",
+  budding: "🌿 Budding",
+  evergreen: "🌳 Evergreen"
+};
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
   <article>
    
-    <p><em>Published on: {frontmatter.date}</em></p>
+    <p style="color: #a1a1aa; font-size: 0.9em;">
+        <em>Published on: {frontmatter.date} | Status: {statusIcons[frontmatter.status]}</em>
+    </p>
     
     <hr /> 
     
